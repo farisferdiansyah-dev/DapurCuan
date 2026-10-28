@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primitive tokens: source visual values. */
+    --orange-50: 28 100% 96%;
+    --orange-100: 29 100% 92%;
+    --orange-500: 24 94% 50%;
+    --orange-600: 20 90% 48%;
+    --orange-700: 17 88% 40%;
+    --green-50: 138 58% 96%;
+    --green-100: 141 52% 91%;
+    --green-600: 142 71% 34%;
+    --green-700: 142 72% 28%;
+    --stone-50: 60 9% 98%;
+    --stone-100: 60 5% 96%;
+    --stone-200: 20 6% 90%;
+    --stone-400: 24 5% 46%;
+    --stone-600: 24 6% 31%;
+    --stone-900: 24 10% 10%;
+    --red-600: 0 72% 47%;
+    --amber-600: 38 92% 42%;
+    --white: 0 0% 100%;
+
+    /* Semantic tokens: purpose aliases. */
+    --background: var(--stone-50);
+    --foreground: var(--stone-900);
+    --card: var(--white);
+    --card-foreground: var(--stone-900);
+    --primary: var(--orange-600);
+    --primary-foreground: var(--white);
+    --secondary: var(--orange-100);
+    --secondary-foreground: var(--orange-700);
+    --muted: var(--stone-100);
+    --muted-foreground: var(--stone-600);
+    --accent: var(--green-100);
+    --accent-foreground: var(--green-700);
+    --success: var(--green-600);
+    --success-foreground: var(--white);
+    --warning: var(--amber-600);
+    --warning-foreground: var(--stone-900);
+    --destructive: var(--red-600);
+    --destructive-foreground: var(--white);
+    --border: var(--stone-200);
+    --input: var(--stone-200);
+    --ring: var(--orange-500);
+
+    /* Component tokens: scoped contracts. */
+    --button-primary-bg: hsl(var(--primary));
+    --button-primary-fg: hsl(var(--primary-foreground));
+    --button-primary-hover: hsl(var(--orange-700));
+    --surface-raised: hsl(var(--card));
+    --surface-subtle: hsl(var(--muted));
+    --focus-outline: hsl(var(--ring));
+    --radius: 0.875rem;
+  }
+
+  * { @apply border-border; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    @apply min-h-screen bg-background text-foreground antialiased;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  h1, h2, h3, h4 { @apply font-semibold tracking-tight; }
+
+  :focus-visible {
+    outline: 3px solid var(--focus-outline);
+    outline-offset: 3px;
+  }
+
+  button, a, input, select, textarea { min-height: 44px; }
+}
+
+@layer components {
+  .container-page { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+  .skip-link { @apply sr-only fixed left-4 top-4 z-50 rounded-lg bg-primary px-4 py-2 text-primary-foreground shadow-lg focus:not-sr-only; }
+  .nav-link { @apply inline-flex items-center rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-secondary-foreground; }
+  .nav-link-active { @apply bg-secondary text-secondary-foreground; }
+  .surface-card { @apply rounded-xl border bg-card text-card-foreground shadow-sm; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

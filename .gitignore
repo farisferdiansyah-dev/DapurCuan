@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Next.js build & compilation
+.next/
+out/
+build/
+dist/
+tsconfig.tsbuildinfo
+
+# Testing, reports & logs
+coverage/
+playwright-report/
+test-results/
+.nyc_output/
+*.log
+
+# Environment variables & Secret credentials
+.env
+.env*.local
+.env.development
+.env.test
+.env.production
+*.pem
+*.key
+*.cert
+
+# Operating System & Editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
